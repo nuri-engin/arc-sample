@@ -19,7 +19,9 @@
     "build:copy": "copyfiles -u 1 public/* public/**/* dist",
     "prebuild": "npm run build:clean && npm run build:copy",
     "build": "npm run env:prod -- webpack",
-    "build:example": "npm run env:example -- npm run build"
+    "build:example": "npm run env:example -- npm run build",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "jest": {
     "moduleDirectories": [
@@ -97,6 +99,8 @@
     "react-router-dom": "^4.3.1",
     "styled-components": "^3.5.0-0",
     "styled-theme": "^0.3.3",
-    "styled-tools": "^1.6.0"
-  }
+    "styled-tools": "^1.6.0",
+    "@snyk/protect": "latest"
+  },
+  "snyk": true
 }
